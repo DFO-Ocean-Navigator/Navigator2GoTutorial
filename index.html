@@ -52,12 +52,6 @@
             <a class="nav-link js-scroll-trigger" href="#firstRun">First Run Tutorial</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
@@ -122,7 +116,7 @@
               <p><strong>Technical Note:</strong> The Navigator2Go executable is compiled and linked as a static binary, so you can move it from the default installation directory (<code>/opt/Navigator2Go/</code>) to a more convenient place of your choice. Or just create a symlink to it ;)</p>
               <p>This tutorial will take you through the process of acquiring data from our public Ocean Navigator server (<a href="http://navigator.oceansdata.ca" target="_blank">navigator.oceansdata.ca</a>) and displaying data for the Halifax region on your local installation:</p>
               <figure class="figure">
-                <img src="..." class="figure-img img-fluid" alt="Final result">
+                <img src="img/finalResult.png" class="figure-img img-fluid" alt="Final result">
                 <figcaption class="figure-caption">What we will end up with.</figcaption>
               </figure>
               <p>Let's get started!</p>
@@ -185,9 +179,6 @@
                   <i>time</i>, <i>validity_time</i>, etc. It's usually one of the first two...<br />
                   For this example, enter <i>time_counter</i> and click <i>OK</i>.
                 </li>
-                <li>The last (and honestly probably least) dialog will now appear showing the aggregation URL for the dataset. Feel free to make note of this since we will use it later.<br />
-                  <img src="img/dataOrderAggURL.png" class="img-fluid" alt="Dataset Aggregation URL">
-                </li>
                 <li>
                   Now our data will download!
                   <img src="img/dataOrderDownloadProgress.png" class="img-fluid" alt="Data Order Download Progress">
@@ -211,7 +202,9 @@
                     <img src="img/newDatasetKey.png" class="img-fluid" alt="New Dataset key">
                   </li>
                   <li>Double-click on that value in the list to begin editing it's properties.</li>
-                  <li><img src="img/newDataset.png" class="img-fluid" alt="Edit Dataset Properties"><br />
+                  <li>
+                    <img src="img/newDataset.png" class="img-fluid" alt="Edit Dataset Properties"><br />
+                    Notice how the <i>URL</i> is already filled in for you.
                   </li>
                 </ul>
                 <strong>Remember:</strong> You can hover over each label on the left-hand side to reveal more information.
@@ -255,82 +248,16 @@
                   </li>
                 </ul>
                 <p>Well that was a bit of a doozy now wasn't it?</p>
+                <p><strong>Note:</strong> If you close the Navigator2Go program without stopping both servers, they will continue to run in the background :) But they will not automatically start when you restart your computer.</p>
             </div>
           </div>
 
         </div>
       </section>
 
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
-        <div class="my-auto">
-          <h2 class="mb-5">Skills</h2>
-
-          <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-          <ul class="list-inline list-icons">
-            <li class="list-inline-item">
-              <i class="devicons devicons-html5"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-css3"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-javascript"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-jquery"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-sass"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-less"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-bootstrap"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-wordpress"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-grunt"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-gulp"></i>
-            </li>
-            <li class="list-inline-item">
-              <i class="devicons devicons-npm"></i>
-            </li>
-          </ul>
-
-          <div class="subheading mb-3">Workflow</div>
-          <ul class="fa-ul mb-0">
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Mobile-First, Responsive Design</li>
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Cross Browser Testing &amp; Debugging</li>
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Cross Functional Teams</li>
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Agile Development &amp; Scrum</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
-        <div class="my-auto">
-          <h2 class="mb-5">Interests</h2>
-          <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skiier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-          <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
-        </div>
-      </section>
-
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contact">
         <div class="my-auto">
-          <h2 class="mb-5">Awards &amp; Certifications</h2>
+          <h2 class="mb-5">Contact</h2>
           <ul class="fa-ul mb-0">
             <li>
               <i class="fa-li fa fa-trophy text-warning"></i>
