@@ -149,8 +149,12 @@
               <p>After a fresh install, the Navigator is hungry! Let's give it some data to digest :P</p>
               <ul>
                 <li>Click on the <i>Data Order</i> tab.</li>
+                <li>Leave the <i>Region of Interest</i> unchanged. Read the FAQs on how to change it.</li>
                 <li>Under <i>2. Remote Datasets</i>, double-click on <i>GIOPS Daily</i>.</li>
-                <li>A new window will appear allowing you to configure the download properties. If you hover over the labels on the left-hand side, you can get some additional information.</li>
+                <li>
+                  A new window will appear allowing you to configure the download properties. If you hover over the labels on the left-hand side, you can get some additional information: <br />
+                  <img src="img/datasetPropertiesTooltip.png" class="img-fluid" alt="Dataset Properties Tooltip">
+                </li>
                 <li>In this new window, scroll to the <i>Variable Selection</i> area.</li>
                 <li>Click on <i>Temperature</i>.</li>
                 <li>Select a date range for the data. <strong>Note:</strong> There is a limit to the selectable date range according to the <i>Quantum</i> attribute:
@@ -164,7 +168,9 @@
                   <img src="img/downloadQueue.png" class="img-fluid" alt="Download Queue">
                 </li>
                 <li>Click the <i>Download Data</i> button to start the download process.</li>
-                <li>Unfortunately now is when things get slightly more complex...</li>
+              </ul>
+              <p>Unfortunately now is when things get slightly more complex...</p>
+              <ul>
                 <li>
                   Since we are downloading a new dataset, Navigator2Go doesn't know where to put the downloaded files. If you have lots of storage space available, or only have
                   the 1 drive, the recommended directory for any download is as follows: <code>/opt/thredds_content/data/&lt;dataset_name&gt;</code>. For this example, enter the following:
@@ -196,10 +202,7 @@
                   <li>Click on the <i>Dashboard</i> tab.</li>
                   <li>Start the <i>THREDDS Server (Apache Tomcat)</i> in the top-left hand box. You should see some output in your console.</li>
                   <li>Click on the <i>Dataset Config Editor</i> tab.</li>
-                  <li>Click on <i>Load Custom File</i>.</li>
-                  <li>Double-click on the <i>oceannavigator</i> folder.</li>
-                  <li>Double-click on <i>datasetconfigOFFLINE.json</i>.</li>
-                  <li>You will now see the <i>Active Config File</i> label in the top-left corner change to <i>datasetconfigOFFLINE.json</i>.</li>
+                  <li>Click on <i>Load Default File</i>.</li>
                   <li>Click on <i>Add Dataset</i>.</li>
                   <li>Enter <i>giops_day</i>.<br />
                     <img src="img/newDatasetKey.png" class="img-fluid" alt="New Dataset key">
@@ -222,6 +225,7 @@
                     Click on <i>votemper</i> and click <i>OK</i>.
                   </li>
                   <li>There will be a new entry in the <i>Variables</i> table. Doule-click on <i>Name</i> and change it to <i>Temperature</i>.
+                    Change <i>Units</i> to <i>Kelvin</i> (no <i>s</i> at the end).
                     Also change <i>Default Min</i> to -5, and <i>Default Max</i> to 30.<br />
                     <img src="img/editDatasetVariables.png" class="img-fluid" alt="Dataset Variables">
                   </li>
