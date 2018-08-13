@@ -120,13 +120,18 @@
               <p>You've now hopefully installed Navigator2Go with complete success! Before we get started, please read through the following notes (the technical ones may be ignored).</p>
               <p><strong>Note:</strong> We recommend running the Navigator2Go binary from your favourite terminal emulator. This allows you to see potentially important debug information in the scenario something misbehaves. Sending us the output from your terminal will allow for a patch to be released much more quickly.</p>
               <p><strong>Technical Note:</strong> The Navigator2Go executable is compiled and linked as a static binary, so you can move it from the default installation directory (<code>/opt/Navigator2Go/</code>) to a more convenient place of your choice. Or just create a symlink to it ;)</p>
+              <p>This tutorial will take you through the process of acquiring data from our public Ocean Navigator server (<a href="http://navigator.oceansdata.ca" target="_blank">navigator.oceansdata.ca</a>) and displaying data for the Halifax region on your local installation:</p>
+              <figure class="figure">
+                <img src="..." class="figure-img img-fluid" alt="Final result">
+                <figcaption class="figure-caption">What we will end up with.</figcaption>
+              </figure>
               <p>Let's get started!</p>
               <h3 class="mb-0">Starting Up</h3>
               <ul>
                 <li>In your favourite terminal emulator: <code>cd /opt/Navigator2Go/</code>.</li>
                 <li>Type: <code>./Navigator2Go</code></li>
                 <li>You will see the following dialog pop up: <br />
-                  <img src="img/firstRunDlg.png" class="img-fluid" alt="First Run Dialog Prompt">
+                  <img src="img/firstRunDlg.png" class="figure-img img-fluid" alt="First Run Dialog Prompt">
                   <br />
                   Click OK to continue.
                 </li>
@@ -150,7 +155,7 @@
                 <li>Under <i>2. Remote Datasets</i>, double-click on <i>GIOPS Daily</i>.</li>
                 <li>A new window will appear allowing you to configure the download properties. If you hover over the labels on the left-hand side, you can get some additional information.</li>
                 <li>In this new window, scroll to the <i>Variable Selection</i> area.</li>
-                <li><code>CTRL + CLICK</code>, <code>CLICK + DRAG</code>, or <code>CLICK</code> to select the variables you wish to download.</li>
+                <li>Click on <i>Temperature</i>.</li>
                 <li>Select a date range for the data. <strong>Note:</strong> There is a limit to the selectable date range according to the <i>Quantum</i> attribute:
                   <ul>
                     <li><i>day</i>: 60 days</li>
@@ -224,8 +229,32 @@
                     Also change <i>Default Min</i> to -5, and <i>Default Max</i> to 30.<br />
                     <img src="img/editDatasetVariables.png" class="img-fluid" alt="Dataset Variables">
                   </li>
+                  <li>Save your changes and close with window by click <i>OK</i> in the bottom-right corner.</li>
+                  <li>Save your config file to disk by clicking the <i>Save</i> button in the top-right corner of the <i>Dataset Config Editor</i> tab.</li>
+                  <li>To start the Ocean Navigator with the "offline" config file we just edited, we must take the Navigator2Go into offline mode as follows: </li>
+                  <ul>
+                    <li>
+                      Press <i>CTRL + SHIFT + P</i> to open the <i>Preferences</i> dialog. <br />
+                      <img src="img/preferencesDlg.png" class="img-fluid" alt="Preferences Dialog"> <br />
+                      Look familiar?
+                    </li>
+                    <li>Click on the <i>Network Online/Offline</i> switch and click <i>OK</i>. Navigator2Go is now offline.</li>
+                    <li>A new dialog will popup reminding you to restart the <i>Web Server (GUnicorn)</i> to see your changes.</li>
+                  </ul>
+                  <li>So, let's listen to the program and start the <i>Web Server</i> :P</li>
+                  <li>After 5-10 secs, you should see a bunch of output in your console along the lines of <code>[INFO] Booting worker with pid:</code>. The Navigator is now running on your system!</li>
+                  <li>
+                    Click on the link just below the <i>Web Server (GUnicorn)</i> (<code>http://localhost:5000</code>) label in the <i>Navigator2Go Status</i> box. A new web browser window will open. This should be your result:
+                    <img src="img/splashPage.png" class="img-fluid" alt="Ocean Navigator Splash Page"> <br />
+                    Click on the <i>OPEN NOW</i> button.
+                  </li>
+                  <li>
+                    After 10-15 secs, your page should look like this:
+                    <img src="img/firstPageLoad.png" class="img-fluid" alt="First Page Load"> <br />
+                    Note the data around the Halifax region. Feel free to zoom in and make some plots.
+                  </li>
                 </ul>
-              </ul>
+                <p>Well that was a bit of a doozy now wasn't it?</p>
             </div>
           </div>
 
