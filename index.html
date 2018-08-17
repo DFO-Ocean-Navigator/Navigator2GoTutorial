@@ -279,7 +279,17 @@
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="faq">
           <div class="my-auto">
             <h2 class="mb-5">FAQ</h2>
-            <h3 class="mb-0">How do I update my installation?</h3>
+            <h3 class="mb-0">Table of Contents</h3>
+            <ul>
+              <li><a href="#updateInstallation" class="js-scroll-trigger">How do I update my installation?</a></li>
+              <li><a href="#changeDataOrderRegion" class="js-scroll-trigger">How do I change the Data Order region?</a></li>
+              <li><a href="#versionInfo" class="js-scroll-trigger">Where do I find my Navigator2Go version info?</a></li>
+              <li><a href="#threddsLogs" class="js-scroll-trigger">Viewing THREDDS log files</a></li>
+              <li><a href="#myJobs" class="js-scroll-trigger">What is the <i>My Jobs</i> box in the Dashboard?</a></li>
+              <li><a href="#importNetCDF" class="js-scroll-trigger">How do I import my own netCDF file(s)?</a></li>
+            </ul>
+            
+            <h3 class="mb-0" id="updateInstallation"><a href="#updateInstallation">How do I update my installation?</a></h3>
             <p>
               Navigator2Go comes with a built-in update utility that runs every time the program starts. You can manually check for updates by going to: <i>Menu -> Help -> Check for Updates</i>. It checks for updates to Navigator2Go and also to the underlying Ocean Navigator.
               In general, the Navigator2Go only requires downloading a single <code>tar.gz</code>. The Ocean Navigator is pretty complex so if it needs an update, we will do it automagically for you.
@@ -290,11 +300,74 @@
               <li>Use <code>tar xvf Navigator2Go.tar.gz -C /opt/Navigator2Go/</code> to unzip it.</li>
             </ul>
             
-            <h3>How do I change the Data Order region?</h3>
+            <h3 class="mb-0" id="changeDataOrderRegion"><a href="#changeDataOrderRegion">How do I change the Data Order region?</a></h3>
             <p>
               We define the data order region using a bounding box as follows: <br />
-              <img src="img/bbox.png" class="img-fluid" alt="Bounding Box">
+              <img src="img/bbox.png" class="img-fluid" alt="Bounding Box"> <br />
+              The values you enter will be stored in the program settings, so they will be saved when you close Navigator2Go. <br />
+              <img src="img/dataOrderRegion.png" class="img-fluid" alt="Data Order Region">
             </p>
+
+            <h3 class="mb-0" id="versionInfo"><a href="#versionInfo">Where do I find my Navigator2Go version info?</a></h3>
+            <p>
+              To help with debugging and the update functions, Navigator2Go embeds it's version number and git commit hash in the <i>About</i> dialog.
+              It is accessible via <i>Menu -> Help -> About</i>. It will look like this (the version number and commit hash will change with each release): <br />
+              <img src="img/aboutDialog.png" class="img-fluid" alt="About Navigator2Go Dialog Box">
+            </p>
+
+            <h3 class="mb-0" id="threddsLogs"><a href="#threddsLogs">Viewing THREDDS log files</a></h3>
+            <p>Let's be clear: THREDDS is a huge pain (in you know where) to debug if something is wrong. I've added a quick way to browse all of the relevant THREDDS logs to see if something is amiss.</p>
+            <p>For detailed info: <a href="https://www.unidata.ucar.edu/software/thredds/v4.5/tds/tutorial/TomcatAndTDSLogs.html" target="_blank">https://www.unidata.ucar.edu/software/thredds/v4.5/tds/tutorial/TomcatAndTDSLogs.html</a></p>
+            <ul>
+              <li>Go to the <i>THREDDS Config Editor</i>.</li>
+              <li>In the bottom right corner, click on <i>Browse Log Files...</i></li>
+              <li>Use the dropdown menu to cycle through the logs The currently selected one reloads every 30 secs. Here is what each log file captures:</li>
+              <ul>
+                <li><strong>cache.log</strong>: contains log messages related to THREDDS object and file caching.</li>
+                <li><strong>catalogInit.log</strong>: errors and warnings in your catalog configuration files are shown here. Look at this closely every time you change your config catalogs.</li>
+                <li><strong>featureCollectionScan.log</strong>: log messages related to THREDDS feature collection scanning.</li>
+                <li><strong>fmrc.log</strong>: usually empty...</li>
+                <li><strong>httpout.log</strong>:</li>
+                <li><strong>serverStartup.log</strong>: contains log messages from the initialization of THREDDS.</li>
+                <li><strong>threddsServlet.log</strong>: contains the log messages for all requests handled by THREDDS. The log file rolls over at the top of every hour with old log files named with the "threddsServlet.log.<yyyy-mm-dd-HH>" pattern. </li>
+              </ul>
+            </ul>
+            
+            <h3 class="mb-0" id="myJobs"><a href="#myJobs">What is the <i>My Jobs</i> &nbsp;box in the Dashboard?</a></h3>
+            <p>Something cool that is coming soon :)</p>
+            <p>Feel free to contact us about this.</p>
+
+            <h3 class="mb-0" id="importNetCDF"><a href="#importNetCDF">How do I import my own netCDF file(s)?</a></h3>
+            <p>Suppose you have a couple of netCDF files lying around on your hard drive you wish to view in the Navigator. Well, you're in luck since Navigator2Go can help! Let's get to it...</p>
+            <p>To summarize, we will need to do the following: make THREDDS aware of our new dataset, do the actual import operation (which automagically moves your file(s) into the THREDDS directory), then add this dataset to the Navigator config file.</p>
+            <ul>
+              <li>Start your <del>engines</del> Navigator2Go.</li>
+              <li>If this is a new dataset you wish to import continue reading. If you wish to "append" to an existing dataset, skip to the third solid bullet.</li>
+              <ul>
+                <li>Go to the <i>THREDDS Config Editor</i>.</li>
+                <li>Click on <i>Add Dataset</i>.</li>
+                <li>
+                  Enter a <i>concise</i> name describing your dataset. Ensure you follow the note about illegal characters: <br />
+                  <img src="img/addTHREDDSDataset.png" class="img-fluid" alt="Add THREDDDS Dataset">
+                </li>
+                <li>
+                  Now enter the directory where you wish your new dataset files to live. Unless your files are very large, we recommend you using the following convention: <br />
+                  <img src="img/newDatasetPath.png" class="img-fluid" alt="New Dataset Path"><br />
+                  Where <i>my_dataset</i> is the name you entered in the previous dialog box.
+                </li>
+                <li>
+                  Now enter the name of the time variable for your dataset. This requires some knowledge of the dataset's internal attributes.
+                  This will be passed along to THREDDS in order to aggregate separate files according to time. The time variable may be called <i>time_counter</i>,
+                  <i>time</i>, <i>validity_time</i>, etc. It's usually one of the first two...<br />
+                  <img src="img/newDatasetTimeDim.png" class="img-fluid" alt="New Dataset Time Dimension">
+                </li>
+              </ul>
+              <li>In the <i>Dashboard</i>, click on the <i>Browse</i> button next to the <i>Import NetCDF File(s)</i> label.</li>
+              <li>
+                This window will appear: <br />
+                <img src="img/importNetCDFWindow.png" class="img-fluid" alt="NetCDF Import Window">
+              </li>
+            </ul>
           </div>
         </section>
 
